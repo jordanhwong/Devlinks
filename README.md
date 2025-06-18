@@ -55,17 +55,20 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#features">Features</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+      <ul>
+        <li><a href="#api-endpoints">API Endpoints</a></li>
+      </ul>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -120,7 +123,7 @@ This API was created to learn and experience with multiple backend topics, such 
     JWT_SECRET=your-super-secret
     PORT=5000
    ```
-4. Run the project with specified arguments
+4. Run the project
     ```sh
     npm run start
     ```
@@ -149,6 +152,7 @@ This API was created to learn and experience with multiple backend topics, such 
 | POST | /api/links | Create a new link, saved in the database |
 | PUT | /api/links/:id | Update a link based on it's ID |
 | DELETE | /api/links/:id | Delete a link based on it's ID |
+
 Note that these methods require a head of ```Authorization: Bearer <JWT token>```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
