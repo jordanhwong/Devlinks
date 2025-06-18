@@ -1,19 +1,18 @@
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
     try {
         const { username, email, password } = req.body;
         const user = new User({ username, email, password });
         await user.save();
         res.status(201).json({ message: 'User registered' });
       } catch (err) {
-        res.status(400).json({ error: err.message
-         });
+        next(err);
       }
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email });
@@ -23,7 +22,7 @@ const login = async (req, res) => {
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
         res.json({ token });
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
 

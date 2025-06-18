@@ -2,7 +2,7 @@ const { parse } = require('dotenv');
 const Link = require('../models/Link');
 const validator = require('validator');
 
-const createLink = async (req, res) => {
+const createLink = async (req, res, next) => {
     try {
         const { title, url, tags } = req.body;
         if (!validator.isURL(url)) {
@@ -11,12 +11,12 @@ const createLink = async (req, res) => {
         const newLink = new Link({ title, url, tags, userId: req.user.id });
         const saved = await newLink.save();
         res.status(201).json(saved);
-      } catch (err) {
-        res.status(400).json({ error: err.message });
-      }    
+    } catch (err) {
+        next(err);
+    }
 };
 
-const getUserLinks = async (req, res) => {
+const getUserLinks = async (req, res, next) => {
     try {
         const { tag, title, page = 1, limit = 10 } = req.query;
         const filter = { userId: req.user.id };
@@ -44,11 +44,11 @@ const getUserLinks = async (req, res) => {
             links
         });
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
 
-const deleteLink = async (req, res) => {
+const deleteLink = async (req, res, next) => {
     try {
         const deleted = await Link.findOneAndDelete({
             _id: req.params.id,
@@ -61,11 +61,11 @@ const deleteLink = async (req, res) => {
 
         res.json({ message: 'Link deleted successfully' });
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        next(err);
     }
 };
 
-const updateLink = async (req, res) => {
+const updateLink = async (req, res, next) => {
     try {
         const { title, url, tags } = req.body;
         if (!validator.isURL(url)) {
@@ -84,7 +84,7 @@ const updateLink = async (req, res) => {
 
         res.json(updatedLink);
     } catch (err) {
-        res.status(400).json({ error: err.message });
+        next(err);
     }
 };
 
