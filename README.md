@@ -31,9 +31,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/jordanhwong/Devlinks">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  <a href="https://github.com/jordanhwong/Devlinks"></a>
 
 <h3 align="center">Devlinks</h3>
   An API used to store and retrieve links with user authentication.
@@ -116,7 +114,7 @@ This API was created to learn and experience with multiple backend topics, such 
     ```sh
     npm install
     ```
-3. Create a .env file in the server directory with the following variables:
+3. Create a ```.env``` file in the server directory with the following variables:
    ```sh
     MONGO_URI=your-mongodb-connection-string
     JWT_SECRET=your-super-secret
@@ -137,12 +135,16 @@ This API was created to learn and experience with multiple backend topics, such 
 ### API Endpoints
 
 #### Authentication
+
 | **Method** | **Route** | **Description** |
+| ---------- | --------- | --------------- |
 | POST | /api/users/register | Register a user |
 | POST | /api/users/login | Log in, with a return of a JWT |
 
 #### Links
+
 | **Method** | **Route** | **Description** |
+| ---------- | --------- | --------------- |
 | GET | /api/links | Get links for a specific user, with optional filtering and pagination |
 | POST | /api/links | Create a new link, saved in the database |
 | PUT | /api/links/:id | Update a link based on it's ID |
