@@ -153,7 +153,7 @@ This API was created to learn and experience with multiple backend topics, such 
 | PUT | /api/links/:id | Update a link based on it's ID |
 | DELETE | /api/links/:id | Delete a link based on it's ID |
 
-Note that these methods require a head of ```Authorization: Bearer <JWT token>```
+Note that these methods require a header of ```Authorization: Bearer <JWT token>```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
