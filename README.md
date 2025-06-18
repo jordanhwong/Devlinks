@@ -31,21 +31,20 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/jordanhwong/Task_Tracker">
+  <a href="https://github.com/jordanhwong/Devlinks">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">Task Tracker</h3>
-
+<h3 align="center">Devlinks</h3>
+  An API used to store and retrieve links with user authentication.
   <p align="center">
-    As based on <a href="https://roadmap.sh/projects/task-tracker">roadmap.sh</a> specifications
     <br />
-    <a href="https://github.com/jordanhwong/Task_Tracker"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/jordanhwong/Devlinks"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/jordanhwong/Task_Tracker/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
+    <a href="https://github.com/jordanhwong/Devlinks/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
-    <a href="https://github.com/jordanhwong/Task_Tracker/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://github.com/jordanhwong/Devlinks/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
   </p>
 </div>
 
@@ -78,17 +77,26 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Task Tracker Screen Shot][product-screenshot]](https://roadmap.sh/projects/task-tracker)
-
-COPY AND PASTED README.MD FROM PREVIOUS PROJECT, TO UPDATE
+This API was created to learn and experience with multiple backend topics, such as user authentication, MVCS, and validation. As such, the project implements all of these features.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-### Built in
+### Tech Stack
 
-* C# .NET
+* **Backend**: Node.js, Express.js
+* **Database**:MongoDB
+* **Authentication**: JWT, Bcrypt
+* **Tools**: Postman
+
+### Features
+
+- CRUD operations for user-specific links
+- JWT user authentication
+- Mongoose schema modeling and validation
+- Route protection and validation for optional filters
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,28 +105,26 @@ COPY AND PASTED README.MD FROM PREVIOUS PROJECT, TO UPDATE
 <!-- GETTING STARTED -->
 ## Getting Started
 
-### Prerequisites
-
-Due to the basic nature of this project, it is likely that cloning this repository should allow you to run the project just fine. However, for completionism it can noted that <a href="https://dotnet.microsoft.com/en-us/download">C# .NET</a> is required, and can be downloaded via the launcher through the hyperlink.
-
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/jordanhwong/Task_Tracker.git
+    git clone https://github.com/jordanhwong/Devlinks.git
+    cd Devlinks
    ```
-2. Build the project
+2. Install Dependencies
     ```sh
-    dotnet build
+    npm install
     ```
-3. Change git remote url to avoid accidental pushes to base project
+3. Create a .env file in the server directory with the following variables:
    ```sh
-   git remote set-url origin <NEW_GIT_URL_HERE>
-   git remote -v # confirm the changes
+    MONGO_URI=your-mongodb-connection-string
+    JWT_SECRET=your-super-secret
+    PORT=5000
    ```
 4. Run the project with specified arguments
     ```sh
-    dotnet run <command> <args>
+    npm run start
     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -128,24 +134,20 @@ Due to the basic nature of this project, it is likely that cloning this reposito
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To run, use .NET's CLI compiler with the action you wish to do. 
-```sh
-dotnet run <command> <args>
-```
-Below is example usage of the program:
-```sh
-dotnet run add "Clean the bathroom"
-Task added successfully: (ID: 1)
+### API Endpoints
 
-dotnet run list              
-ID: 1, Description: Clean the bathroom, Status: ToDo, Created At: 5/22/2025 9:35:17 PM, Updated At: 5/22/2025 9:35:17 PM
+#### Authentication
+| **Method** | **Route** | **Description** |
+| POST | /api/users/register | Register a user |
+| POST | /api/users/login | Log in, with a return of a JWT |
 
-dotnet run mark-done 1
-Task ID 1 status updated to Done.
-
-dotnet run list done  
-ID: 1, Description: Clean the bathroom, Status: Done, Created At: 5/22/2025 9:35:17 PM, Updated At: 5/22/2025 9:37:20 PM
-```
+#### Links
+| **Method** | **Route** | **Description** |
+| GET | /api/links | Get links for a specific user, with optional filtering and pagination |
+| POST | /api/links | Create a new link, saved in the database |
+| PUT | /api/links/:id | Update a link based on it's ID |
+| DELETE | /api/links/:id | Delete a link based on it's ID |
+Note that these methods require a head of ```Authorization: Bearer <JWT token>```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -159,7 +161,7 @@ ROADMAP
 - [ ] Feature 3
     - [ ] Nested Feature
 
-See the [open issues](https://github.com/jordanhwong/Task_Tracker/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/jordanhwong/Devlinks/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  -->
@@ -183,7 +185,7 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- ### Top contributors:
 
-<a href="https://github.com/jordanhwong/Task_Tracker/graphs/contributors">
+<a href="https://github.com/jordanhwong/Devlinks/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=github_username/repo_name" alt="contrib.rocks image" />
 </a> -->
 
@@ -203,7 +205,7 @@ Distributed under the project_license. See `LICENSE.txt` for more information.
 
 Jordan Wong -  jordanhwong1@gmail.com
 
-Project Link: [https://github.com/jordanhwong/Task_Tracker](https://github.com/jordanhwong/Task_Tracker)
+Project Link: [https://github.com/jordanhwong/Devlinks](https://github.com/jordanhwong/Devlinks)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -224,15 +226,15 @@ Project Link: [https://github.com/jordanhwong/Task_Tracker](https://github.com/j
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/jordanhwong/Task_Tracker/graphs/contributors
+[contributors-url]: https://github.com/jordanhwong/Devlinks/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/jordanhwong/Task_Tracker/network/members
+[forks-url]: https://github.com/jordanhwong/Devlinks/network/members
 [stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/jordanhwong/Task_Tracker/stargazers
+[stars-url]: https://github.com/jordanhwong/Devlinks/stargazers
 [issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/jordanhwong/Task_Tracker/issues
+[issues-url]: https://github.com/jordanhwong/Devlinks/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/jordanhwong/Task_Tracker/blob/master/LICENSE.txt
+[license-url]: https://github.com/jordanhwong/Devlinks/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jordanhwong
 [product-screenshot]: images/screenshot.png
