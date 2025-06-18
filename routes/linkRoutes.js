@@ -10,4 +10,8 @@ router.post('/', linkController.createLink);
 
 router.get('/', linkController.getUserLinks);
 
+router.delete('/:id', linkController.deleteLink);
+
+router.put('/:id', linkController.updateLink);
+
 module.exports = router;
